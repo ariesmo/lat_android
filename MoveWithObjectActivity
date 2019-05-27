@@ -1,0 +1,30 @@
+package com.example.myintentapp;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import static com.example.myintentapp.MoveWithDataActivity.EXTRA_AGE;
+
+public class MoveWithObjectActivity extends AppCompatActivity {
+
+    public static final String EXTRA_PERSON = "Person.";
+
+    TextView tvObjectReceived;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_move_with_object);
+
+        tvObjectReceived = findViewById(R.id.tv_object_received);
+
+        String Name = getIntent().getStringExtra(EXTRA_PERSON);
+        int Age = getIntent().getIntExtra(EXTRA_PERSON, 0);
+        String Email = getIntent().getStringExtra(EXTRA_PERSON);
+        String City = getIntent().getStringExtra(EXTRA_PERSON);
+
+        String text = "Name : " + Name + ",\nYour Age : " + Age + ",\nYour Email : " + Email + ",\nYour City : " + City;
+        tvObjectReceived.setText(text);
+    }
+}
